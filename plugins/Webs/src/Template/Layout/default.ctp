@@ -18,7 +18,17 @@
         ?>
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css?v=21">
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css?v=21">
-        
+       <!-- Global site tag (gtag.js) - Google Analytics -->
+       <?php  if ($this->request->env('HTTP_HOST') != 'localhost') { ?>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117904211-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-117904211-1');
+</script>
+       <?php } ?>
        
     </head>
     
@@ -39,6 +49,7 @@
         <?= $this->Html->script('theia-sticky-sidebar.js?v=21') ?>
         <?= $this->Html->script('sticky.js?v=21') ?>
         <?= $this->Html->script('main.js?v=21') ?>
+        
       
 <script>
 		function myFunction() {
