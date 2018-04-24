@@ -116,6 +116,11 @@ class WebnewsController extends AppController {
             // $brand_id = explode(',', $chkArraybrand);
            // pr($brand_id); die; 
         }
+   if (isset($this->request->data['vendor_id']) && $this->request->data['vendor_id'] != "") {
+             $vendor_id = $this->request->data['vendor_id'];
+            // $brand_id = explode(',', $chkArraybrand);
+           // pr($brand_id); die; 
+        }
         
        $result = $Product->find('all')
                 ->contain(['Categories', 'Brands', 'Features'])
@@ -136,6 +141,10 @@ class WebnewsController extends AppController {
         }
             if (isset($price_id) && !empty($price_id)) {
                 $result = $result->where(['Product.price <=' => $price_id]);
+            }
+       
+            if (isset($vendor_id) && !empty($vendor_id)) {
+                $result = $result->where(['Product.vendor ' => $vendor_id]);
             }
        
        //pr($result); die;

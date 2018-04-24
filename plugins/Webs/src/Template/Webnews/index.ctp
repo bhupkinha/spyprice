@@ -4,6 +4,7 @@ $categorys = $this->Common->getCategory();
 $features = $this->Common->getFeatures();
 $brands = $this->Common->getBrands();
 $pricerange = $this->Common->getpricerange();
+$vendors = $this->Common->getvendors();
 //pr($brands); die;
 ?>
 
@@ -281,6 +282,12 @@ $pricerange = $this->Common->getpricerange();
                                 <?= $this->Form->control('price_id', ['name' => 'price_id', 'class' => 'form-control select', 'type' => 'select', 'options' => $pricerange,'onchange'=>'filterFunction(this.id)',  'empty' => 'Select Price']) ?>          
                                 </div>
                                         </div>
+                                        <br>
+                                        <div class="inner">
+                                            <div class="select-m">
+                                <?= $this->Form->control('vendor_id', ['name' => 'price_id', 'class' => 'form-control select', 'type' => 'select', 'options' => $vendors,'onchange'=>'filterFunction(this.id)',  'empty' => 'Select Vendor']) ?>          
+                                </div>
+                                        </div>
                                     </ul>
                                 </div>
                             </form>
@@ -377,6 +384,7 @@ $pricerange = $this->Common->getpricerange();
     {
         
         var price_id = $('#price-id').val(); 
+        var vendor_id = $('#vendor-id').val(); 
         //alert(price_id);
         var chkArrayfeature = [];
       $("#checkboxfeature input:checked").each(function() {
@@ -391,7 +399,7 @@ $pricerange = $this->Common->getpricerange();
         var urls = '<?= $this->Url->build(['controller' =>'Webnews', 'action' =>'getFilter'])?>';
        //alert(urls)
         //urllinkr = urlr + '/' + searcbankid + '/' + searcstateid + '/' + bank_district ;
-        var data = '&chkArrayfeature=' + escape(chkArrayfeature) +'&chkArraybrand=' + escape(chkArraybrand)+'&price_id=' + escape(price_id);
+        var data = '&chkArrayfeature=' + escape(chkArrayfeature) +'&chkArraybrand=' + escape(chkArraybrand)+'&price_id=' + escape(price_id)+'&vendor_id=' + escape(vendor_id);
      // alert(data);
             $.ajax({
                 type: "POST",

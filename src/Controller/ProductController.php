@@ -44,13 +44,26 @@ class ProductController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['Categories', 'Brands', 'Features']
-        ];
-        $count = $this->Product->find('all');
-        $count = $count->where(['Product.status !=' => '2'])->order(['Product.created' => 'DESC']);;
-                
-        $product = $this->paginate($count);
+       
+        $norec = 10;
+        $search = [];
+        if (isset($this->request->query['norec']) && trim($this->request->query['norec']) != "") {
+            $norec = $this->request->query['norec'];
+        }
+        
+        if (isset($search)) {
+            $count = $this->Product->find('all')
+                    ->where([$search]);
+          //  pr($count); die;
+        } else {
+            $count = $this->Product->find('all');
+        }
+        $count = $count->where(['Product.status !=' => '2']);
+        
+        $this->paginate = ['limit' => $norec, 'order' => ['Product.id' => 'DESC'],'contain' => ['Categories', 'Brands', 'Features']];
+
+        $product = $this->paginate($count)->toArray();        
+        //pr($product); die;
 
         $this->set(compact('product'));
     }

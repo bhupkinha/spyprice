@@ -39,6 +39,7 @@ class Product extends Entity
         'feature_id' => true,
         'name' => true,
         'images' => true,
+        'vendor' => true,
         'price' => true,
         'status' => true,
         'created' => true,

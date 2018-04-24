@@ -1,5 +1,6 @@
 <?php
 $status = $this->Common->getstatus();
+$vendors = $this->Common->getvendors();
 //$selectedbrand = explode(',', $product->brand_id);
 //$selectedfeatures = explode(',', $product->feature_id);
 ?>
@@ -65,7 +66,17 @@ $status = $this->Common->getstatus();
                                     <div class="form-line image">
                                                     <?= $this->Form->control('images', ['label' => 'Image', 'class' => 'form-control', 'type' => 'file', 'onchange' => "ImageFilesize();"]) ?>            
                                                 </div>
-                                </div>            
+                                </div>  
+                         <br>
+                              
+                                <div class="select-m">
+                                    <?= $this->Form->control('status', ['class' => 'form-control select2', 'type' => 'select', 'options' => $status, 'empty' => 'Select Status']) ?>          
+                                </div>
+                                 <br>
+                              
+                                <div class="select-m">
+                                    <?= $this->Form->control('vendor', ['class' => 'form-control select2', 'type' => 'select', 'options' => $vendors, 'empty' => 'Select Vendor']) ?>          
+                                </div>       
                             </div>
                         </div>
                          <div class="text-center">

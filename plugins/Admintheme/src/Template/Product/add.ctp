@@ -1,5 +1,6 @@
 <?php
 $status = $this->Common->getstatus();
+$vendors = $this->Common->getvendors();
 
 ?>
 <section class="content">
@@ -65,6 +66,11 @@ $status = $this->Common->getstatus();
                               
                                 <div class="select-m">
                                     <?= $this->Form->control('status', ['class' => 'form-control select2', 'type' => 'select', 'options' => $status, 'empty' => 'Select Status']) ?>          
+                                </div>
+                                 <br>
+                              
+                                <div class="select-m">
+                                    <?= $this->Form->control('vendor', ['class' => 'form-control select2', 'type' => 'select', 'options' => $vendors, 'empty' => 'Select Vendor']) ?>          
                                 </div>
                             </div>
                         </div>

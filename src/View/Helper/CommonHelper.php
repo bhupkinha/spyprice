@@ -55,6 +55,9 @@ public function getCategorytype() {
 public function getpricerange() {
         return['500' => 'Less 500', '5000' => 'Less 5000', '100000' => 'Greater 5000'];
     }
+public function getvendors() {
+        return['1' => 'FastMarkets', '2' => 'Hundsun', '3' => 'Shinnytech', '4' => 'Systex Info'];
+    }
     
     public function getNoOfRec() {
         return [10 => 10, 20 => 20, 30 => 30, 40 => 40, 50 => 50, 100 => 100];

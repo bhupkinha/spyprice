@@ -25,7 +25,7 @@
                                             <?= $this->Html->image($cover, ['alt' => 'related-news', 'class' => 'img-rounded ', 'accept' => 'image/*']); ?>
                                         </div>
                                         <div class="box-heading">
-                                            <?= $product->name ?>
+                                            <?= $this->Common->turnCatefun($product->name,50 )?>
                                         </div>
                                         <div class="box-price">
                                             <strong>&#8360; <?= $product->price ?></strong>
