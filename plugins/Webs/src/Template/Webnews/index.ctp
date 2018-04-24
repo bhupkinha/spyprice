@@ -147,14 +147,21 @@ $pricerange = $this->Common->getpricerange();
                 border: 1px solid #ddd;
                 padding: 15px;
                 margin-top: 15px;
+                max-width: 209px;
+                max-height: 287px;
+                min-height: 287px;
             }
             .box-img{
                 width: 100%;
                 height: 180px;
+                max-width: 164px;
+                max-height: 156px;
             }
             .box-img img{
                 width: 100%; 
                 height: 100%;
+                max-width: 164px;
+                max-height: 156px;
                 object-fit: contain;
             }
             .box-heading{
@@ -328,7 +335,7 @@ $pricerange = $this->Common->getpricerange();
                                             <?= $this->Html->image($cover, ['alt' => 'related-news', 'class' => 'img-rounded ', 'accept' => 'image/*']); ?>
                                         </div>
                                         <div class="box-heading">
-                                            <?= $product->name ?>
+                                            <?= $this->Common->turnCatefun($product->name,50 )?>
                                         </div>
                                         <div class="box-price">
                                             <strong>&#8360; <?= $product->price ?></strong>
